@@ -21,3 +21,8 @@ curves {
 }.createPlot(0.1, 10)
  .draw(800, 600)
 ```
+
+#### Output
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/14273096/114096720-c8d13600-98c7-11eb-865e-74362412b00a.png" width="700"/>
+</p>
