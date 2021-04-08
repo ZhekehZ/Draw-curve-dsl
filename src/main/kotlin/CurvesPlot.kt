@@ -16,8 +16,8 @@ class CurvesPlot(
     private val useColor = color != Color.WHITE
 
     private val colors = arrayOf(
-        Color.BLUE, Color.RED, Color.GREEN,
-        Color.CYAN, Color.PINK, Color.ORANGE,
+        Color.RED, Color.BLUE, Color.ORANGE,
+        Color.PINK, Color.CYAN, Color.GREEN,
         Color.MAGENTA, Color.YELLOW
     )
 
@@ -29,7 +29,7 @@ class CurvesPlot(
 
     override fun paint(g: Graphics) {
         val graphic2d = g as Graphics2D
-        graphic2d.stroke = BasicStroke(3F)
+        graphic2d.stroke = BasicStroke(5F)
 
         if (useColor) {
             graphic2d.color = color

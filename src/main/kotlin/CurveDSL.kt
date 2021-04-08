@@ -1,11 +1,11 @@
 import java.awt.Color
 
-fun interface Function {
-    operator fun invoke(i: Double): Double
-    operator fun invoke(i: Number): Double = invoke(i.toDouble())
-}
+@DslMarker
+annotation class CurvesDSL
 
-val t = Function { it }
+fun interface Function {
+    operator fun invoke(i: Number): Double
+}
 
 infix operator fun Function.div(d: Number) = Function { invoke(it) / d.toDouble() }
 infix operator fun Number.div(f: Function) = Function { f(it) / toDouble() }
@@ -24,7 +24,10 @@ infix operator fun Function.times(f: Function) = Function { invoke(it) * f(it) }
 operator fun Function.unaryMinus() = Function { -invoke(it) }
 operator fun Function.unaryPlus() = Function { invoke(it) }
 
+@CurvesDSL
 class Curve {
+    val t = Function { it.toDouble() }
+
     lateinit var range: IntRange
     lateinit var x: Function
     lateinit var y: Function
