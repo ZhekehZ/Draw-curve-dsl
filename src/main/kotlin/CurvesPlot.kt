@@ -21,11 +21,9 @@ class CurvesPlot(
         Color.MAGENTA, Color.YELLOW
     )
 
-    private fun IntRange.split() = flatMap { i ->
-        (0 until quality)
-            .map { i + it.toDouble() / quality }
-    }
-        .dropLast(quality - 1)
+    private fun Iterable<Int>.split() = flatMap { i ->
+        (0 until quality).map { i + it.toDouble() / quality }
+    }.dropLast(quality - 1)
 
     override fun paint(g: Graphics) {
         val graphic2d = g as Graphics2D
