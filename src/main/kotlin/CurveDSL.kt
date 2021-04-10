@@ -17,10 +17,10 @@ infix operator fun Function.times(d: Number) = Function { invoke(it) * d.toDoubl
 infix operator fun Function.plus(d: Number) = Function { invoke(it) + d.toDouble() }
 infix operator fun Function.minus(d: Number) = Function { invoke(it) - d.toDouble() }
 
-infix operator fun Number.div(f: Function) = Function { f(it) / toDouble() }
-infix operator fun Number.times(f: Function) = Function { f(it) * toDouble() }
-infix operator fun Number.plus(f: Function) = Function { f(it) + toDouble() }
-infix operator fun Number.minus(f: Function) = Function { f(it) - toDouble() }
+infix operator fun Number.div(f: Function) = Function { toDouble() / f(it) }
+infix operator fun Number.times(f: Function) = Function { toDouble() * f(it) }
+infix operator fun Number.plus(f: Function) = Function { toDouble() + f(it) }
+infix operator fun Number.minus(f: Function) = Function { toDouble() - f(it)  }
 
 infix operator fun Function.plus(f: Function) = Function { invoke(it) + f(it) }
 infix operator fun Function.minus(f: Function) = Function { invoke(it) - f(it) }
